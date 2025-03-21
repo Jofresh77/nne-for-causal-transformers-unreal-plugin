@@ -1,5 +1,5 @@
 ## Overview
-This project showcase an attempt to provide a Unreal Engine 5 plugin using the NNE plugin with a locally running causal transformer model imported as onxx. Since the project couldn't be led to a successful implenentation and its implementation had to be stopped, the presented code is only intended for the Qwen/Qwen2.5-0.5B-Instruct transformer model.
+This project showcase an attempt to provide a Unreal Engine 5 plugin using the NNE plugin with a locally running causal transformer model imported as onxx. Since the project couldn't be led to a successful implementation and had to be stopped, the presented code is only intended for the Qwen/Qwen2.5-0.5B-Instruct transformer model.
 
 _The onnx models are not in this project since they are too large, but any .onnx files can be dragged and dropped into the Unreal Engine Content folder if the NNEOnnxruntime plugin is installed inside a Unreal project **(note that this plugin automatically enables it)**._
 
