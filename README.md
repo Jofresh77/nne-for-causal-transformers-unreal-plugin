@@ -8,6 +8,7 @@ Simply drag and drop the repository root folder inside the Plugins folder of a U
 
 ### Requirements
 - Unreal Engine 5.5
+- Having the Qwen/Qwen2.5-0.5B-Instruct exported as .onnx and imported inside a Unreal Engine project as a UNNEModelData asset. 
 
 ## Notes
 The plugin integrates the [tokenizers-cpp](https://github.com/mlc-ai/tokenizers-cpp) library as Third-Party library aside with the implementation to perform manual token encoding and decoding following the BPE (Bytes-Per-Level) method analogally to what the Qwen Instruct architecture expects.
