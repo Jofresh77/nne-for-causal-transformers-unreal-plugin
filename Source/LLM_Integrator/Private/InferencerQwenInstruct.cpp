@@ -125,11 +125,18 @@ void AInferencerQwenInstruct::PrepareInputTensors(const TArray<int64>& TokenIDs)
 	CurrentState.AttentionMask.SetNumZeroed(NumTokens);
 	CurrentState.PositionIDs.SetNumZeroed(NumTokens);
 
+	for (int32 i = 0; i < NumTokens; i++)
+	{
+		CurrentState.InputIDs[i] = TokenIDs[i];
+		CurrentState.AttentionMask[i] = 1; 
+		CurrentState.PositionIDs[i] = i;
+	}
+
 	for (int32 i = NumTokens; i < MAX_SEQ_LENGTH; i++)
 	{
-		CurrentState.InputIDs[i] = 0; //TODO: MAYBE GIVE THE ACTUAL TOKEN IDS ??????? WTF
-		CurrentState.AttentionMask[i] = 0;
-		CurrentState.PositionIDs[i] = 0;
+		CurrentState.InputIDs[i] = 0;     
+		CurrentState.AttentionMask[i] = 0; 
+		CurrentState.PositionIDs[i] = 0; 
 	}
 
 	CurrentState.CurrentLength = NumTokens;
