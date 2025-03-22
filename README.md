@@ -13,4 +13,4 @@ Simply drag and drop the repository root folder inside the Plugins folder of a U
 ## Notes
 The plugin integrates the [tokenizers-cpp](https://github.com/mlc-ai/tokenizers-cpp) library as Third-Party library aside with the implementation to perform manual token encoding and decoding following the BPE (Bytes-Per-Level) method analogally to what the Qwen Instruct architecture expects.
 
-Before the encoding, a softmax algorithm is used to process the output logits.
+Before the decoding, a softmax algorithm is used to process the output logits.
