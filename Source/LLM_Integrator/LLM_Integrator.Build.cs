@@ -28,10 +28,10 @@ public class LLM_Integrator : ModuleRules
 				"Core",
 				"CPP_Tokenizer",
 				"NNE",
-				"RHI"/*,
+				"RHI",
 				"NNEEditor",
 				"NNEOnnxruntime",
-				"NNERuntimeORT"*/
+				"NNERuntimeORT"
 			}
 		);
 

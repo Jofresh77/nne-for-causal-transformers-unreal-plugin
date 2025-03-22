@@ -92,7 +92,7 @@ void AInferencerQwenInstruct::ProcessChat(const FString& UserMessage)
 		
 		UE_LOG(LogTemp, Log, TEXT("Decoded token ids: %s"), *Decoded);
 
-		AsyncTask(ENamedThreads::GameThread, [this, TokenIds]()
+		AsyncTask(ENamedThreads::AnyNormalThreadNormalTask, [this, TokenIds]()
 		{
 			FScopeLock Lock(&StateMutex);
 			CurrentState = FInferenceState();
@@ -127,7 +127,7 @@ void AInferencerQwenInstruct::PrepareInputTensors(const TArray<int64>& TokenIDs)
 
 	for (int32 i = NumTokens; i < MAX_SEQ_LENGTH; i++)
 	{
-		CurrentState.InputIDs[i] = 0;
+		CurrentState.InputIDs[i] = 0; //TODO: MAYBE GIVE THE ACTUAL TOKEN IDS ??????? WTF
 		CurrentState.AttentionMask[i] = 0;
 		CurrentState.PositionIDs[i] = 0;
 	}
@@ -209,7 +209,7 @@ void AInferencerQwenInstruct::RunGenerationStep()
 	CurrentState.CurrentLength++;
 
 	// Schedule next generation step
-	AsyncTask(ENamedThreads::GameThread, [this]()
+	AsyncTask(ENamedThreads::AnyNormalThreadNormalTask, [this]()
 	{
 		RunGenerationStep();
 	});
